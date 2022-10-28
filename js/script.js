@@ -43,14 +43,6 @@ createApp({
         }},
         removeTask(i) {
             this.toDosList.splice(i,1);
-        },
-        checkTask(i){
-            if(!this.toDosList[i].done){
-            this.toDosList[i].done = true;
-            } else {
-                this.toDosList[i].done = false;
-            }
-
         }
     }
 }).mount('#app');

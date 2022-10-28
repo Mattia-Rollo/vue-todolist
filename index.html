@@ -16,17 +16,18 @@
         <div class="container">
             <h1>TODO LIST</h1>
             <div class="user-input">
-                <input class="form-control w-50" v-model="newTask.text" @keyup.enter="addTask">
-                <button class="btn btn-info">Aggiungi</button>
+                <input class="form-control w-25 mx-3" v-model="newTask.text" @keyup.enter="addTask">
+                <button @click="addTask" class="btn btn-info">Aggiungi</button>
             </div>
             <div v-if="hasError">Scrivi più di 3 caratteri!</div>
-            <ul>
-                <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="checkTask(index)">
+            <ul vf-if="toDosList > 1">
+                <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="toDo.done = !toDo.done">
                     <span v-if="toDo.done"><i class="fa-solid fa-check green"></i></span>
                     <span :class="toDo.done ? 'done': ''">{{toDo.text}}</span>
                     <button @click.stop="removeTask(index)" class="myBtn ms-auto"><i class="fa-solid fa-trash"></i></button>
                 </li>
             </ul>
+            </div>
             
         </div>
     </div>

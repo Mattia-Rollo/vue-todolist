@@ -13,8 +13,8 @@
 </head>
 <body>
     <div id="app">
-        <div class="container bg-light shadow-lg rounded">
-            <h1 class="py-4">TODO LIST</h1>
+        <div class="container bg-light shadow-lg rounded mt-4">
+            <h1 class="py-4 text">TODO LIST</h1>
             <div class="row">
                 <div class="col-auto m-auto">
                     <div class="user-input">
@@ -31,14 +31,14 @@
             
                     <ul v-if="toDosList.length > 0">
                         <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="toDo.done = !toDo.done">
-                            <span v-if="toDo.done"><i class="fa-solid fa-check green"></i></span>
-                            <span :class="toDo.done ? 'done': ''">{{toDo.text}}</span>
+                            <span class="px-2" v-if="toDo.done"><i class="fa-solid fa-check green"></i></span>
+                            <span class="px-2" :class="toDo.done ? 'done': ''">{{toDo.text}}</span>
                             <button @click.stop="removeTask(index)" class="myBtn ms-auto"><i class="fa-solid fa-trash"></i></button>
                         </li>
                     </ul>
             
             
-                    <h2 class="py-3 text-bg-light rounded m-auto" v-else>Empty</h2>
+                    <h2 class="m-auto" v-else>Empty</h2>
                
             
         </div>

@@ -43,13 +43,13 @@ li {
 
 }
 li:hover {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: rgba(150, 0, 0, 0.5);
     border-radius: 5px;
 }
-li:has(+ li:hover) {
+/* li:has(+ li:hover) {
     border: 0;
-}
+} */
 .myBtn {
     font-size: 20px;
     padding: 1px 12px;

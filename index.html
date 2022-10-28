@@ -16,7 +16,7 @@
         <button>invia</button>
         <div v-if="hasError">scrivi bene maialino</div>
         <ul>
-            <li v-for="(toDo,index) in toDosList" :key="index"  @click="toDo.done ? 'done' : ''">{{toDo.text}}
+            <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="checkTask(index)" :class="toDo.done ? 'done': ''">{{toDo.text}}
                 <button @click="removeTask(index)">x</button>
             </li>
         </ul>

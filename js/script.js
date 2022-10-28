@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return{
+            class: '',
             hasError: false,
             task: null,
             newTask: {
@@ -30,7 +31,7 @@ createApp({
         addTask(){
             if(this.newTask.text.length > 3){
             
-            this.toDosList.push(this.newTask);
+            this.toDosList.unshift(this.newTask);
             this.newTask = {
                 text: '',
                 done: false
@@ -38,11 +39,18 @@ createApp({
             this.hasError = false;
 
         }else{
-           this.hasError = true; 
+            this.hasError = true; 
         }},
         removeTask(i) {
             this.toDosList.splice(i,1);
+        },
+        checkTask(i){
+            this.toDosList[i].done = true;
+            // this.done = 'done';
+
         }
+
+
 
     }
 }).mount('#app');

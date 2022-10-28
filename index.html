@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.min.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
     <title>ToDOList</title>
 </head>
 <body>
     <div id="app">
-        <input type="text">
+        <input v-model="newTask.text" @keyup.enter="addTask">
+        <button>invia</button>
+        <div v-if="hasError">scrivi bene maialino</div>
         <ul>
-            <li></li>
+            <li v-for="(toDo,index) in toDosList" :key="index"  @click="toDo.done ? 'done' : ''">{{toDo.text}}
+                <button @click="removeTask(index)">x</button>
+            </li>
         </ul>
-
+        <div></div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
@@ -13,15 +14,17 @@
 <body>
     <div id="app">
         <div class="container">
+            <h1>TODO LIST</h1>
             <div class="user-input">
-                <input v-model="newTask.text" @keyup.enter="addTask">
-                <button>invia</button>
-                <div v-if="hasError">Scrivi più di 3 caratteri!</div>
+                <input class="form-control w-50" v-model="newTask.text" @keyup.enter="addTask">
+                <button class="btn btn-info">Aggiungi</button>
             </div>
+            <div v-if="hasError">Scrivi più di 3 caratteri!</div>
             <ul>
                 <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="checkTask(index)">
+                    <span v-if="toDo.done"><i class="fa-solid fa-check green"></i></span>
                     <span :class="toDo.done ? 'done': ''">{{toDo.text}}</span>
-                    <button @click.stop="removeTask(index)"><i class="fa-solid fa-trash"></i></button>
+                    <button @click.stop="removeTask(index)" class="myBtn ms-auto"><i class="fa-solid fa-trash"></i></button>
                 </li>
             </ul>
             

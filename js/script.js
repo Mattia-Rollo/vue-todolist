@@ -22,6 +22,18 @@ createApp({
                 {
                     text: 'lavarsi',
                     done: false
+                },
+                {
+                    text: 'fare la cacca',
+                    done: false
+                },
+                {
+                    text: 'mangiare',
+                    done: false
+                },
+                {
+                    text: 'lavarsi',
+                    done: false
                 }
             ]
         }

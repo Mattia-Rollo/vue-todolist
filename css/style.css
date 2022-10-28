@@ -2,3 +2,13 @@
     text-decoration: line-through;
     cursor: pointer;
 }
+ul {
+    background-color: aqua;
+    width: 300px
+}
+li {
+    background-color: antiquewhite;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}

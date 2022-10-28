@@ -12,15 +12,18 @@
 </head>
 <body>
     <div id="app">
-        <input v-model="newTask.text" @keyup.enter="addTask">
-        <button>invia</button>
-        <div v-if="hasError">scrivi bene maialino</div>
-        <ul>
-            <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="checkTask(index)" :class="toDo.done ? 'done': ''">{{toDo.text}}
-                <button @click.stop="removeTask(index)">x</button>
-            </li>
-        </ul>
-        <div></div>
+        <div class="container text-center">
+            <input v-model="newTask.text" @keyup.enter="addTask">
+            <button>invia</button>
+            <div v-if="hasError">scrivi bene maialino</div>
+            <ul>
+                <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="checkTask(index)" >
+                    <span :class="toDo.done ? 'done': ''">{{toDo.text}}</span>
+                    <button @click.stop="removeTask(index)">x</button>
+                </li>
+            </ul>
+            
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>

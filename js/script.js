@@ -3,7 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return{
-            class: '',
+            hideCompleted: false,
             hasError: false,
             task: null,
             newTask: {
@@ -12,31 +12,39 @@ createApp({
             },
             toDosList: [
                 {
-                    text: 'fare la cacca',
+                    text: 'Alzarsi dal letto',
                     done: false
                 },
                 {
-                    text: 'mangiare',
+                    text: 'Portare fuori il cane',
                     done: false
                 },
                 {
-                    text: 'lavarsi',
+                    text: 'Correre sui  muri',
+                    done: true
+                },
+                {
+                    text: 'Giocare con mia nipote',
+                    done: true
+                },
+                {
+                    text: 'Contare i numeri positivi',
                     done: false
                 },
                 {
-                    text: 'fare la cacca',
-                    done: false
-                },
-                {
-                    text: 'mangiare',
-                    done: false
-                },
-                {
-                    text: 'lavarsi',
+                    text: 'Mangiare a mezzanotte',
                     done: false
                 }
             ]
         }
+    },
+    computed: {
+        filtered(){
+            return this.hideCompleted 
+             ? this.toDosList.filter((task) => task.done == false)
+           : this.toDosList;
+             
+           }
     },
     methods: {
         

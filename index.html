@@ -14,12 +14,12 @@
 <body>
     <div id="app">
         <div class="container bg-light shadow-lg rounded">
-            <h1 class="text-center ">TODO LIST</h1>
+            <h1 class="text-center ">TODO-LIST</h1>
             <div class="row pt-3">
                 <div class="col-auto m-auto">
                     <div class="user-input">
                         <input class="form-control me-2" v-model="newTask.text" @keyup.enter="addTask">
-                        <button @click="addTask" class="btn btn-info">Add</button>
+                        <button @click="addTask" class="btn btn-outline-primary">Add</button>
                     </div>
                 </div>
             </div>
@@ -30,15 +30,17 @@
             </div>
             
                     <ul v-if="toDosList.length > 0">
-                        <li v-for="(toDo,index) in toDosList" :key="index"  @click.stop="toDo.done = !toDo.done" >
+                        <li v-for="(toDo,index) in filtered" :key="index"  @click.stop="toDo.done = !toDo.done" >
                             <span class="px-2" v-if="toDo.done"><i class="fa-solid fa-check green"></i></span>
-                            <span class="px-2" :class="toDo.done ? 'done': ''">{{toDo.text}}</span>
+                            <span class="px-2" :class="{done: toDo.done}">{{toDo.text}}</span>
                             <button @click.stop="removeTask(index)" class="myBtn ms-auto"><i class="fa-solid fa-trash"></i></button>
                         </li>
                     </ul>
             
             
                     <h2  class="m-auto text-center" v-else>Empty</h2>
+
+                    <button class="btn btn-outline-primary" @click="hideCompleted = !hideCompleted">{{hideCompleted ? 'show all': 'hide completed'}}</button>
                
             
         </div>

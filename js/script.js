@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return{
+            show: true,
             hideCompleted: false,
             hasError: false,
             task: null,
